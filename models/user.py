@@ -34,6 +34,7 @@ class User(Base):
 
     FIELDS = {
         'username': str,
+        'user_id': int,
         'email': str,
         'details': encoder.passby,
         'token': str,
