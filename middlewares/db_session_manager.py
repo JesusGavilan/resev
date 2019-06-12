@@ -29,7 +29,7 @@ class DBSessionManager(object):
                 session.commit()
             except SQLAlchemyError as ex:
                 session.rollback()
-                raise DatabaseError(ERROR_DATABASE_ROLLBACK, ex.args, ex.params)
+                raise DatabaseError(ERROR_DATABASE_ROLLBACK, ex.args, None)
 
         if self._scoped:
             session.remove()
