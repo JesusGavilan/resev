@@ -3,16 +3,25 @@ version: '3.1'
 services:
   db:
     image: postgres
-    network_mode: host
+    hostname: db
     restart: always
     environment:
       POSTGRES_USER: dev
       POSTGRES_PASSWORD: dev
     volumes:
       - ./scripts/init.pgsql:/docker-entrypoint.d/init.sql
+  app:
+    image: resev-app
+    hostname: app
+    build: .
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+
   db-admin:
     image: dpage/pgadmin4
-    network_mode: host
+    hostname: db-admin
     restart: always
     ports:
       - "80:80"
