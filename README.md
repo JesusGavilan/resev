@@ -1,4 +1,4 @@
-# Resev application
+# Resev app
 ## Requirements
 - Docker version 18.05
 - Docker compose version 1.21.2
